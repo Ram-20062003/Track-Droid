@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.3338541666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.245018115942029" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.328125" />
       </map>
     </option>
   </component>

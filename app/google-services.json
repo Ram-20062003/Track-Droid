@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "942691474850",
+    "project_id": "track-droid-a13d9",
+    "storage_bucket": "track-droid-a13d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942691474850:android:17846c58a3f38493c7e6fb",
+        "android_client_info": {
+          "package_name": "com.example.familytrackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942691474850-ounh4qq0kruik6rbg849qlgeumldrm2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.familytrackerapp",
+            "certificate_hash": "121e62a94182a1bb559bd739d7236b6ed2df5788"
+          }
+        },
+        {
+          "client_id": "942691474850-hpmq0qk50o9ptv54f4tua3grutcj9q2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH8idA42KcxFaQOlWunxsGOWGtVDe8Kww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942691474850-hpmq0qk50o9ptv54f4tua3grutcj9q2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

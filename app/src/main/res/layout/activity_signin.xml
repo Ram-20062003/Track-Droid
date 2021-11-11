@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/petrona"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="UserName"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/user_signin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:layout_weight="15"
+                android:gravity="center" />
+
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/petrona"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/pass_sigin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:layout_gravity="center"
+                android:layout_weight="15"
+                android:gravity="center" />
+
+
+        </TableRow>
+        <TableRow
+            android:layout_margin="20dp"
+            >
+            <Button
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:background="@color/teal_200"
+                android:text="SIGN-IN"
+                android:layout_weight="1"
+                android:onClick="log_in"
+                tools:ignore="HardcodedText" />
+
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

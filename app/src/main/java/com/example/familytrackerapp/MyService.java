@@ -2,6 +2,10 @@ package com.example.familytrackerapp;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.familytrackerapp.Constants.constant.ACTION_STOP;
+import static com.example.familytrackerapp.Constants.constant.lat;
+import static com.example.familytrackerapp.Constants.constant.longi;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
@@ -15,6 +19,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +28,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.familytrackerapp.Constants.constant;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -31,14 +37,20 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MyService extends Service {
-    private static final String ACTION_STOP ="action_stop" ;
     FusedLocationProviderClient fusedLocationProviderClient;
     LocationRequest locationRequest;
-
+    FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     LocationCallback locationCallback = new LocationCallback() {
         @Override
         public void onLocationResult(@NonNull LocationResult locationResult) {
@@ -47,7 +59,25 @@ public class MyService extends Service {
             {
                 for(Location location :locationResult.getLocations())
                 {
-                    Log.d(TAG, "onLocationResult: "+location.getLatitude());
+                    Coordinates coordinates=new Coordinates(location.getLatitude(),location.getLongitude());
+                    Log.d(TAG, "Coordinates: "+coordinates);
+                    Log.d(TAG, "Latitude: "+location.getLatitude());
+                    Log.d(TAG, "Longitude: "+location.getLongitude());
+                    Map<String,Object> map=new HashMap<String,Object>();
+                    map.put(lat,String.valueOf(location.getLatitude()));
+                    map.put(longi,String.valueOf(location.getLongitude()));
+                    MainActivity.firebaseFirestore.collection("Locations").document(firebaseAuth.getUid().toString()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.d(TAG, "Coordinates added successfully ");
+                         }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "Error while adding Coordinates", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "Error on FireStore: "+e);
+                        }
+                    });
                 }
             }
         }
@@ -88,13 +118,13 @@ public class MyService extends Service {
                 .setContentTitle("Family Tracker App")
                 .setContentText("Your device is under tracking mode click STOP to stop tracking")
                 .addAction(R.drawable.notification_icon,"STOP",pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_MIN);
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
         notificationManager.notify(1, builder.build());
         startForeground(1, builder.build());
 
 
-        return START_REDELIVER_INTENT;
+        return START_STICKY;
     }
     private void setttingsandpermissioncheck() {
         LocationSettingsRequest locationSettingsRequest = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest).build();
