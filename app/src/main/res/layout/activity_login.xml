@@ -1,156 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
 
-    <TableLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TableRow>
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="180dp"
+            android:layout_height="170dp"
+            android:src="@drawable/splash2"
+            android:transitionName="logo_image" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="UserName"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/hi_there"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-9dp"
 
-            <EditText
-                android:id="@+id/user"
+            android:fontFamily="@font/bungee"
+            android:text="Welcome,"
+            android:textColor="#c6ff00"
+            android:textSize="40sp"
+            android:transitionName="track_droid" />
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-22dp"
+
+            android:fontFamily="@font/changa_one"
+            android:text="SignUp to Start Your New Journey"
+            android:textColor="#3D3C3C"
+            android:textSize="17sp"
+            android:transitionName="sign_in" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:layout_gravity="center"
-                android:layout_weight="15"
-                android:gravity="center" />
-
-
-        </TableRow>
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Password"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:hint="Enter Your Email"
+                android:textColorHint="#3D3B3B"
+                app:startIconTint="#c6ff00"
+                app:boxStrokeColor="#c6ff00"
+                app:hintTextColor="#c6ff00"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
 
-            <EditText
-                android:id="@+id/pass"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:inputType="textEmailAddress"
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                android:layout_weight="15"
-                android:gravity="center" />
-
-
-        </TableRow>
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Confirm Password"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:hint="Phone Number"
+                android:textColorHint="#3D3B3B"
+                app:boxStrokeColor="#c6ff00"
+                android:layout_marginBottom="7dp"
+                app:startIconTint="#c6ff00"
 
-            <EditText
-                android:id="@+id/confo_pass"
+                app:hintTextColor="#c6ff00"
+                app:prefixText="+91"
+                app:prefixTextColor="#c6ff00"
+                app:startIconDrawable="@drawable/ic_baseline_local_phone_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                android:layout_weight="15"
-                android:gravity="center" />
-
-
-        </TableRow>
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Phone number"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:layout_marginBottom="7dp"
+                android:hint="Enter Password"
+                android:textColorHint="#3D3B3B"
+                android:transitionName="password_transition"
+                app:startIconTint="#c6ff00"
+                app:boxStrokeColor="#c6ff00"
+                app:hintTextColor="#c6ff00"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
-            <EditText
-                android:id="@+id/phone"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:inputType="number"
-                android:layout_weight="15"
-                android:gravity="center"
-                tools:ignore="TextFields" />
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:layout_marginBottom="7dp"
+                android:textColorHint="#3D3B3B"
+                android:transitionName="password_transition"
+                app:boxStrokeColor="#c6ff00"
+                app:hintTextColor="#c6ff00"
+                app:startIconTint="#c6ff00"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confo_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        </TableRow>
-         <TableRow
-             android:layout_margin="20dp"
-             >
-             <Button
-                 android:id="@+id/signin"
-                 android:layout_width="wrap_content"
-                 android:layout_height="55dp"
-                 android:layout_marginEnd="20dp"
-                 android:layout_weight="1"
-                 android:background="@color/teal_200"
-                 android:text="SIGN-IN"
-                 android:onClick="sign_in"
-                 tools:ignore="HardcodedText" />
-             <Button
-                 android:id="@+id/signup"
-                 android:layout_width="wrap_content"
-                 android:layout_height="55dp"
-                 android:layout_marginEnd="20dp"
-                 android:layout_weight="1"
-                 android:background="@color/teal_200"
-                 android:text="SIGN-UP"
-                 android:onClick="sign_up"
-                 tools:ignore="HardcodedText" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signup"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+
+                android:fontFamily="@font/arbutus"
+                android:onClick="sign_up"
+                android:text="Sign Up"
+                android:textColor="#c6ff00"
+                android:transitionName="btn_transition"
+                app:strokeColor="#c6ff00">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <Button
+                android:id="@+id/signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:elevation="0dp"
+                android:fontFamily="@font/changa_one"
+                android:text="Already have an account? Login here"
+                android:onClick="sign_in"
+                android:textColor="#292929"
+                android:textSize="12sp"
+                android:transitionName="new_transition" />
+
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 
 
-         </TableRow>
-    </TableLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

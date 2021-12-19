@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/arbutus</item>
+        <item>@font/bungee</item>
+        <item>@font/changa_one</item>
+        <item>@font/fontdiner_swanky</item>
+    </array>
+</resources>
