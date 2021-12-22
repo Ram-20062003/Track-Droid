@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/font/antic.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/font/arbutus.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/layout/activity_home.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/layout/activity_signin.xml" value="0.33" />
         <entry key="..\:/Users/dhruv/AndroidStudioProjects/Track-Droid/app/src/main/res/layout/activity_splash.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.3338541666666667" />

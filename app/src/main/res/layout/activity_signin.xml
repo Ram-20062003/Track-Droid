@@ -52,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Your Email"
+
                 app:startIconTint="#c6ff00"
                 android:textColorHint="#3D3B3B"
                 app:boxStrokeColor="#c6ff00"
@@ -63,6 +64,7 @@
                     android:id="@+id/user_signin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#c6ff00"
                     android:layout_marginBottom="7dp"
                     android:inputType="textEmailAddress"
                     android:shadowColor="#8BC34A"
@@ -91,6 +93,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pass_sigin"
                     android:layout_width="match_parent"
+                    android:textColor="#c6ff00"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:shadowColor="#8BC34A"
