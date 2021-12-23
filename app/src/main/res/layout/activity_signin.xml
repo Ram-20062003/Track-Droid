@@ -1,87 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="17dp">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="UserName"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
 
-            <EditText
-                android:id="@+id/user_signin"
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="200dp"
+            android:transitionName="logo_image"
+            android:layout_height="190dp"
+            android:src="@drawable/splash2"/>
+
+        <TextView
+            android:id="@+id/hi_there"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:text="Hello There; Welcoome Back"
+            android:transitionName="track_droid"
+            android:textColor="#c6ff00"
+            android:layout_marginTop="-7dp"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/changa_one"
+            android:text="Sign in to Continue"
+            android:transitionName="sign_in"
+            android:textColor="#3D3C3C"
+            android:layout_marginTop="-18dp"
+            android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:layout_gravity="center"
-                android:layout_weight="15"
-                android:gravity="center" />
-
-
-        </TableRow>
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/petrona"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="Password"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:hint="Enter Your Email"
 
-            <EditText
-                android:id="@+id/pass_sigin"
+                app:startIconTint="#c6ff00"
+                android:textColorHint="#3D3B3B"
+                app:boxStrokeColor="#c6ff00"
+                app:hintTextColor="#c6ff00"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id="@+id/user_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#c6ff00"
+                    android:layout_marginBottom="7dp"
+                    android:inputType="textEmailAddress"
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                android:layout_weight="15"
-                android:gravity="center" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:hint="Enter Password"
+                android:textColorHint="#3D3B3B"
+                android:transitionName="password_transition"
+                app:boxStrokeColor="#c6ff00"
+                app:hintTextColor="#c6ff00"
+                app:passwordToggleEnabled="true"
+                app:startIconTint="#c6ff00"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pass_sigin"
+                    android:layout_width="match_parent"
+                    android:textColor="#c6ff00"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:shadowColor="#8BC34A"
+                    android:textColorHint="#000000">
 
-        </TableRow>
-        <TableRow
-            android:layout_margin="20dp"
-            >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="#00000000"
+                android:elevation="0dp"
+                android:fontFamily="@font/changa_one"
+                android:text="Forget Password?"
+                android:textColor="#292929"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/sign"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@color/teal_200"
-                android:text="SIGN-IN"
-                android:layout_weight="1"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arbutus"
                 android:onClick="log_in"
-                tools:ignore="HardcodedText" />
+                android:text="Sign in"
+                android:textColor="#c6ff00"
+                android:transitionName="btn_transition"
+                app:strokeColor="#c6ff00">
+
+            </com.google.android.material.button.MaterialButton>
 
 
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
+
+
+<!--<TableLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:padding="20dp"-->
+<!--app:layout_constraintBottom_toBottomOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toTopOf="parent">-->
+
+<!--<TableRow>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="2"-->
+<!--        android:fontFamily="@font/petrona"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="UserName"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        tools:ignore="HardcodedText" />-->
+
+<!--    <EditText-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_weight="15"-->
+<!--        android:gravity="center" />-->
+
+
+<!--</TableRow>-->
+<!--<TableRow>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="2"-->
+<!--        android:fontFamily="@font/petrona"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="Password"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        tools:ignore="HardcodedText" />-->
+
+<!--    <EditText-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPassword"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_weight="15"-->
+<!--        android:gravity="center" />-->
+
+
+<!--</TableRow>-->
+<!--<TableRow-->
+<!--    android:layout_margin="20dp"-->
+<!--    >-->
+<!--    <Button-->
+
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:background="@color/teal_200"-->
+<!--        android:text="SIGN-IN"-->
+<!--        android:layout_weight="1"-->
+
+<!--        tools:ignore="HardcodedText" />-->
+
+
+<!--</TableRow>-->
+<!--</TableLayout>-->
