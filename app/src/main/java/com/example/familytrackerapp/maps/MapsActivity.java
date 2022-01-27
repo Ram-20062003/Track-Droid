@@ -22,6 +22,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,8 +32,9 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
     FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     private static final String key="COORDINATES";
     private Coordinates Coordinates;
 
@@ -50,15 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -71,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void getdata()
     {
-        MainActivity.firebaseFirestore.collection("Locations").document("RamGanesh").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        MainActivity.firebaseFirestore.collection("Locations").document(String.valueOf(firebaseUser)).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if(documentSnapshot.exists()){
@@ -98,7 +92,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onStart() {
         super.onStart();
-        MainActivity.firebaseFirestore.collection("Locations").document("RamGanesh").addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+        MainActivity.firebaseFirestore.collection("Locations").document(firebaseAuth.getUid().toString()).addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error!=null)

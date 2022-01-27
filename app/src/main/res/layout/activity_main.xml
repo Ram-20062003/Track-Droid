@@ -12,15 +12,15 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/arbutus"
-        android:text="Live Tracking"
+        android:text="Your Position"
         android:textColor="#00C4FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.214"
+        app:layout_constraintVertical_bias="1.0"
         app:strokeColor="#00C4FF"
         tools:ignore="MissingConstraints" />
 
@@ -41,9 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="-20dp"
         android:fontFamily="@font/alfa_slab_one"
         android:letterSpacing="0.08"
-        android:layout_marginBottom="-20dp"
         android:text="TRACK DROID"
         android:textAlignment="center"
         android:textColor="#00C4FF"
@@ -53,5 +53,40 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/joinCircle"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="167dp"
+        android:fontFamily="@font/arbutus"
+        android:text="Join Circle"
+        android:textColor="#00C4FF"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/createCircle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/createCircle"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="#00C4FF" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/createCircle"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="#00C4FF"
+        app:strokeColor="#00C4FF"
+        android:layout_marginRight="10px"
+
+        android:fontFamily="@font/arbutus"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Create Circle"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

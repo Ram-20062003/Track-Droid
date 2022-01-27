@@ -17,7 +17,9 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.familytrackerapp.circles.joinCircle;
 import com.example.familytrackerapp.maps.MapsActivity;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -35,14 +37,33 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     public static  FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+    Button joinCircle,createCircle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        joinCircle=findViewById(R.id.joinCircle);
+        createCircle=findViewById(R.id.createCircle);
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        joinCircle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, com.example.familytrackerapp.circles.joinCircle.class);
+                startActivity(intent);
+            }
+        });
+
+        createCircle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, com.example.familytrackerapp.circles.createCircle.class);
                 startActivity(intent);
             }
         });
