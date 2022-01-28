@@ -59,6 +59,7 @@
             android:exported="true">
 
         </activity>
+        <activity android:name=".chat.chat" android:exported="true" />
         <activity
             android:name=".circles.createCircle"
             android:exported="true">
