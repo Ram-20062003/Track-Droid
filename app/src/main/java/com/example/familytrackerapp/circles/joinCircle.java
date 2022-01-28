@@ -1,6 +1,8 @@
 package com.example.familytrackerapp.circles;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +44,7 @@ public class joinCircle extends AppCompatActivity {
         Map<String,List<String>> map=new HashMap<String,List<String>>();
         Map<String,List<String>> reverseMap=new HashMap<String,List<String>>();
         Map<String,String> map2= new HashMap<>();
-        b_join=findViewById(R.id.createCirclebutton);
+        b_join=findViewById(R.id.joinCirclebutton);
         joinText=findViewById(R.id.joinText);
         firebaseFirestore.collection("groups").document(firebaseAuth.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -57,10 +59,27 @@ public class joinCircle extends AppCompatActivity {
                 }
             }
         });
+
         b_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t++;
+                joinText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        t=1;
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
                 String join=joinText.getText().toString();
                 list.add(join);
                 map.put("Group",list);
@@ -78,7 +97,7 @@ public class joinCircle extends AppCompatActivity {
                 });
                 Log.d(TAG, "join: "+join);
 
-                firebaseFirestore.collection("CheckGroup").document(join).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                firebaseFirestore.collection("CreateGroup").document(join).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(documentSnapshot.exists() && t ==2 )
@@ -87,25 +106,7 @@ public class joinCircle extends AppCompatActivity {
                             reverselist.add(firebaseAuth.getUid());
                             reverseMap.put("id",reverselist);
                             Log.d(TAG, "join: "+join);
-                            firebaseFirestore.collection("CheckGroup").document(join).set(reverseMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Log.d(TAG, "Success: Added successfully");
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: "+e);
-
-                                }
-                            });
-                        }
-                        else
-                        {
-                            reverselist.add(firebaseAuth.getUid());
-                            reverseMap.put("id",reverselist);
-                            Log.d(TAG, "join: "+join);
-                            firebaseFirestore.collection("CheckGroup").document(join).set(reverseMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            firebaseFirestore.collection("CreateGroup").document(join).set(reverseMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Log.d(TAG, "Success: Added successfully");
@@ -120,9 +121,6 @@ public class joinCircle extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
             }
         });
     }
