@@ -75,16 +75,36 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/createCircle"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#00C4FF"
-        app:strokeColor="#00C4FF"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginRight="10px"
 
         android:fontFamily="@font/arbutus"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
         android:text="Create Circle"
+        android:textColor="#00C4FF"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="1.0"
+        app:strokeColor="#00C4FF" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/chatButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/arbutus"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="7dp"
+        android:text="Chat"
+        android:textColor="#00C4FF"
+        android:strokeColor="#00C4FF"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/createCircle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/joinCircle"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="1.0" />
 

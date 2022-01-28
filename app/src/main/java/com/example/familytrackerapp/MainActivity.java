@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.familytrackerapp.chat.chat;
 import com.example.familytrackerapp.circles.joinCircle;
 import com.example.familytrackerapp.maps.MapsActivity;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -37,13 +38,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     public static  FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
-    Button joinCircle,createCircle;
+    Button joinCircle,createCircle,bChat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         joinCircle=findViewById(R.id.joinCircle);
         createCircle=findViewById(R.id.createCircle);
+        bChat=findViewById(R.id.chatButton);
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, com.example.familytrackerapp.circles.createCircle.class);
+                startActivity(intent);
+            }
+        });
+
+        bChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, chat.class);
                 startActivity(intent);
             }
         });
