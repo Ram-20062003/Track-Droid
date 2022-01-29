@@ -46,7 +46,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".maps.MapsActivity"
+            android:name=".chat.maps.MapsActivity"
             android:exported="true"
             android:label="AIzaSyBUM-C1dj9pPVRF1pUOoiXhmZ_xCwNj2Bk" />
         <activity

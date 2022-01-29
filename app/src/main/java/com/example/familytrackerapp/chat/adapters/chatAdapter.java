@@ -1,5 +1,6 @@
 package com.example.familytrackerapp.chat.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.familytrackerapp.R;
+import com.example.familytrackerapp.chat.maps.MapsActivity;
 
 import java.util.List;
 
@@ -43,6 +45,14 @@ public class chatAdapter extends RecyclerView.Adapter<chatAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView=itemView.findViewById(R.id.textItem);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent =new Intent(itemView.getContext(),MapsActivity.class);
+                    intent.putExtra("locations", textView.getText());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
 
         }
     }
